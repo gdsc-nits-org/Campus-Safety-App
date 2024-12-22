@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.campussafetyapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.campussafetyapp"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -33,9 +33,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    dataBinding { 
+        enable= true
+    }
 }
 
 dependencies {
+
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
