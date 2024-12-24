@@ -13,9 +13,11 @@
         android:theme="@style/Theme.CampusSafetyApp"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity_primary"
+            android:exported="false" />
+        <activity
             android:name=".UptoSosActivity"
             android:exported="false" />
-
         <activity
             android:name=".SplashScreen"
             android:exported="true">

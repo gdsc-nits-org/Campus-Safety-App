@@ -26,9 +26,9 @@
             app:layout_constraintVertical_bias="0.436" />
 
         <ImageButton
-            android:id="@+id/imageView3"
-            android:layout_width="285dp"
-            android:layout_height="60dp"
+            android:id="@+id/getStartedButton"
+            android:layout_width="282dp"
+            android:layout_height="49dp"
             android:layout_marginBottom="64dp"
             android:background="@color/sos_page"
             android:contentDescription="@string/todo"
@@ -55,10 +55,10 @@
             android:id="@+id/imageView5"
             android:layout_width="279dp"
             android:layout_height="56dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/sos_text"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/getStartedButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.381" />
