@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_fragSafetyInfo_to_fragAcedamicInfo"
             app:destination="@id/fragAcedamicInfo" />
+        <action
+            android:id="@+id/action_fragSafetyInfo_to_loginActivity_primary"
+            app:destination="@id/loginActivity_primary" />
     </fragment>
     <fragment
         android:id="@+id/fragAcedamicInfo"
@@ -19,10 +22,22 @@
         <action
             android:id="@+id/action_fragAcedamicInfo_to_SOSFragment"
             app:destination="@id/SOSFragment" />
+        <action
+            android:id="@+id/action_fragAcedamicInfo_to_loginActivity_primary"
+            app:destination="@id/loginActivity_primary" />
     </fragment>
     <fragment
         android:id="@+id/SOSFragment"
         android:name="com.example.campussafetyapp.SOSFragment"
         android:label="fragment_s_o_s"
-        tools:layout="@layout/fragment_s_o_s" />
+        tools:layout="@layout/fragment_s_o_s" >
+        <action
+            android:id="@+id/action_SOSFragment_to_loginActivity_primary"
+            app:destination="@id/loginActivity_primary" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity_primary"
+        android:name="com.example.campussafetyapp.LoginActivity_primary"
+        android:label="activity_login_primary"
+        tools:layout="@layout/activity_login_primary" />
 </navigation>

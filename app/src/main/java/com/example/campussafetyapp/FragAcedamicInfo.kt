@@ -1,5 +1,7 @@
 package com.example.campussafetyapp
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -13,6 +15,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.navigation.fragment.findNavController
 
@@ -29,6 +32,7 @@ class FragAcedamicInfo : Fragment() {
 
 
 
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,19 +45,25 @@ class FragAcedamicInfo : Fragment() {
         val nextArrow:ImageButton = view.findViewById(R.id.arrow_next_academic)
 
         nextArrow.setOnClickListener {
-            findNavController().navigate(R.id.action_fragAcedamicInfo_to_SOSFragment)
+
+            if (isAdded) {
+                findNavController().navigate(R.id.action_fragAcedamicInfo_to_SOSFragment)
+            }
         }
 
-        skipButton.setOnClickListener{
-            Intent(requireContext(), LoginActivity_primary::class.java).also {
-                startActivity(it)
+        skipButton.setOnClickListener {
+//            Intent(requireContext(), LoginActivity_primary::class.java).also {
+//                startActivity(it)
+//            }
+            if (isAdded) {
+                findNavController().navigate(R.id.action_fragAcedamicInfo_to_loginActivity_primary)
             }
         }
 
         progressBar = view.findViewById(R.id.singleProgressBarAcademic2)
-
+        val constraintLayout :ConstraintLayout = view.findViewById(R.id.constraAcademic)
         // Set touch listener for pausing/resuming
-        progressBar.setOnTouchListener { _, event ->
+        constraintLayout.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> pauseProgress()
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> resumeProgress()
@@ -76,25 +86,46 @@ class FragAcedamicInfo : Fragment() {
             interpolator = LinearInterpolator()
             start()
 
-            doOnEnd {
-                // Toast.makeText(this@FragSafetyInfo.requireContext()    , "Progress Completed!", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_fragAcedamicInfo_to_SOSFragment)
-            }
+//            doOnEnd {
+//                // Toast.makeText(this@FragSafetyInfo.requireContext()    , "Progress Completed!", Toast.LENGTH_SHORT).show()
+//               navigateToSOSFragment()
+//            }
+
+            addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    if (isAdded) {
+                        findNavController().navigate(R.id.action_fragAcedamicInfo_to_SOSFragment)
+                    }
+                }
+
+                override fun onAnimationCancel(animation: Animator) {
+                    if (isAdded) {
+                        findNavController().navigate(R.id.action_fragAcedamicInfo_to_SOSFragment)
+                    }
+                }
+            })
+
         }
     }
 
     private fun pauseProgress() {
-        if (isPaused) return
+        if (isPaused || currentAnimator==null) return
         isPaused = true
         currentAnimator?.pause()
     }
 
     private fun resumeProgress() {
-        if (!isPaused) return
+        if (!isPaused || currentAnimator==null) return
         isPaused = false
         currentAnimator?.resume()
     }
 
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        currentAnimator?.cancel()
+    }
 
 
 }
