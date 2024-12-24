@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragSafetyInfo">
+    <fragment
+        android:id="@+id/fragSafetyInfo"
+        android:name="com.example.campussafetyapp.FragSafetyInfo"
+        android:label="FragSafetyInfo" >
+        <action
+            android:id="@+id/action_fragSafetyInfo_to_fragAcedamicInfo"
+            app:destination="@id/fragAcedamicInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragAcedamicInfo"
+        android:name="com.example.campussafetyapp.FragAcedamicInfo"
+        android:label="FragAcedamicInfo" >
+        <action
+            android:id="@+id/action_fragAcedamicInfo_to_SOSFragment"
+            app:destination="@id/SOSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SOSFragment"
+        android:name="com.example.campussafetyapp.SOSFragment"
+        android:label="fragment_s_o_s"
+        tools:layout="@layout/fragment_s_o_s" />
+</navigation>

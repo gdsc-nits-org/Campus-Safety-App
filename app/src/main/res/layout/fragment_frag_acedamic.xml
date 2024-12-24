@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph"
+
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="60dp"
+            android:layout_weight="0.15"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+
+
+
+
+            >
+
+            <ImageButton
+                android:id="@+id/skipAcademicInfo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="240dp"
+                android:background="@color/white"
+
+                android:contentDescription="TODO"
+                android:padding="5dp"
+
+                android:scaleType="centerInside"
+                android:src="@drawable/skip_button_acedemicinfo"
+
+                tools:ignore="ContentDescription,TouchTargetSizeCheck">
+
+
+            </ImageButton>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/hereswhat_we"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:contentDescription="@string/todo"
+            android:padding="40dp"
+            android:src="@drawable/introactivity_heres_what_we"
+            >
+
+        </ImageView>
+
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginBottom="3dp"
+
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="TODO"
+                android:paddingTop="20dp"
+                android:src="@drawable/mid_acedamicsupport" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:contentDescription="TODO"
+                android:padding="2dp"
+
+                android:src="@drawable/bottom_img_acedamicsinfo"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
