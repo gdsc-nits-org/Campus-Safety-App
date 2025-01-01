@@ -20,19 +20,18 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.campussafetyapp.MyContactPage.ContactAdapter
 import com.google.android.material.imageview.ShapeableImageView
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
-
+class MyContactPage : AppCompatActivity() {
     private lateinit var contactAdapter: ContactAdapter
 
-    @SuppressLint("Range")
+    @SuppressLint("Range", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_my_contact_page)
         val exitText = findViewById<TextView>(R.id.backText)
 
         // Handle TextView click to exit app
@@ -95,14 +94,12 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Set window insets listener for edge-to-edge UI
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
     }
-
     private fun addHeaders(contactList: List<ContactDTO>): List<ContactDTO> {
         val contactListWithHeaders = mutableListOf<ContactDTO>()
         var lastChar: Char? = null
@@ -192,6 +189,6 @@ class MainActivity : AppCompatActivity() {
                     notifyDataSetChanged()
                 }
             }
-       }
+        }
     }
 }
