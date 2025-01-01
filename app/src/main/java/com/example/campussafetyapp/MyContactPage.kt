@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
@@ -20,36 +21,63 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.campussafetyapp.MyContactPage.ContactAdapter
 import com.google.android.material.imageview.ShapeableImageView
 import java.util.Locale
 
 class MyContactPage : AppCompatActivity() {
     private lateinit var contactAdapter: ContactAdapter
+    private lateinit var visibleLetterView: TextView
 
-    @SuppressLint("Range", "MissingInflatedId")
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_my_contact_page)
-        val exitText = findViewById<TextView>(R.id.backText)
 
-        // Handle TextView click to exit app
+        val exitText = findViewById<TextView>(R.id.backText)
         exitText.setOnClickListener {
-            finish() // Close the app when the text is clicked
+            finish()
         }
 
         val contactListRecyclerView: RecyclerView = findViewById(R.id.contact_list)
         contactListRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Prepare list of contacts
+        val contactList: MutableList<ContactDTO> = getContacts()
+        val contactListWithHeaders = addHeaders(contactList)
+
+        contactAdapter = ContactAdapter(contactListWithHeaders, this)
+        contactListRecyclerView.adapter = contactAdapter
+
+        val searchView = findViewById<SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean = false
+            override fun onQueryTextChange(newText: String?): Boolean {
+                contactAdapter.filter.filter(newText)
+                return true
+            }
+        })
+
+        // Setup Alphabetical Scroller
+        val alphabetScroller: View = findViewById(R.id.alphabet_scroller)
+        visibleLetterView = findViewById(R.id.visible_letter)
+
+        setupAlphabetScroller(alphabetScroller, contactListRecyclerView, contactListWithHeaders)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    @SuppressLint("Range")
+    private fun getContacts(): MutableList<ContactDTO> {
         val contactList: MutableList<ContactDTO> = mutableListOf()
         val contactsCursor = contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
             null, null, null, null
         )
 
-        // Read the contacts
         contactsCursor?.let {
             while (it.moveToNext()) {
                 val name = it.getString(
@@ -73,33 +101,9 @@ class MyContactPage : AppCompatActivity() {
                 contactList.sortBy { contact -> contact.name.lowercase(Locale.ROOT) }
             }
         }
-
-        // Add headers to contact list
-        val contactListWithHeaders = addHeaders(contactList)
-
-        // Initialize adapter and set it to RecyclerView
-        contactAdapter = ContactAdapter(contactListWithHeaders, this)
-        contactListRecyclerView.adapter = contactAdapter
-
-        // Set up SearchView for filtering
-        val searchView = findViewById<SearchView>(R.id.searchView)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                contactAdapter.filter.filter(newText)
-                return true
-            }
-        })
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        return contactList
     }
+
     private fun addHeaders(contactList: List<ContactDTO>): List<ContactDTO> {
         val contactListWithHeaders = mutableListOf<ContactDTO>()
         var lastChar: Char? = null
@@ -114,6 +118,39 @@ class MyContactPage : AppCompatActivity() {
             contactListWithHeaders.add(contact)
         }
         return contactListWithHeaders
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupAlphabetScroller(
+        scroller: View,
+        recyclerView: RecyclerView,
+        contactList: List<ContactDTO>
+    ) {
+        scroller.setOnTouchListener { _, event ->
+            val totalHeight = scroller.height
+            val letters = ('A'..'Z').toList()
+            val letterHeight = totalHeight / letters.size
+            val actionY = event.y.toInt()
+            val letterIndex = actionY / letterHeight
+
+            if (event.action == MotionEvent.ACTION_MOVE || event.action == MotionEvent.ACTION_DOWN) {
+                if (letterIndex in letters.indices) {
+                    val selectedLetter = letters[letterIndex]
+                    visibleLetterView.visibility = View.VISIBLE
+                    visibleLetterView.text = selectedLetter.toString()
+
+                    val position = contactList.indexOfFirst {
+                        it.name.startsWith(selectedLetter.toString(), true)
+                    }
+                    if (position != -1) {
+                        recyclerView.scrollToPosition(position)
+                    }
+                }
+            } else if (event.action == MotionEvent.ACTION_UP) {
+                visibleLetterView.visibility = View.GONE
+            }
+            true
+        }
     }
 
     class ContactAdapter(private val items: List<ContactDTO>, private val context: Context) :
@@ -172,7 +209,6 @@ class MyContactPage : AppCompatActivity() {
                     val query = constraint?.toString()?.lowercase(Locale.ROOT) ?: ""
                     val result = FilterResults()
 
-                    // Perform filtering on contacts only, not on headers
                     result.values = if (query.isEmpty()) {
                         originalList
                     } else {
