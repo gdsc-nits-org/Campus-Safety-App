@@ -12,8 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -24,14 +24,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import java.util.Locale
 
-class MyContactPage : AppCompatActivity() {
+class MyContactActivity : AppCompatActivity() {
     private lateinit var contactAdapter: ContactAdapter
     private lateinit var visibleLetterView: TextView
+    private lateinit var alphabetScroller: View
 
     @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_my_contact_page)
 
         val exitText = findViewById<TextView>(R.id.backText)
@@ -49,6 +49,10 @@ class MyContactPage : AppCompatActivity() {
         contactListRecyclerView.adapter = contactAdapter
 
         val searchView = findViewById<SearchView>(R.id.searchView)
+        searchView.isIconified = false // Ensures the search view is fully expanded
+        searchView.setOnClickListener {
+            searchView.isIconified = false // Ensures it responds to clicks anywhere
+        }
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -58,7 +62,7 @@ class MyContactPage : AppCompatActivity() {
         })
 
         // Setup Alphabetical Scroller
-        val alphabetScroller: View = findViewById(R.id.alphabet_scroller)
+        alphabetScroller = findViewById(R.id.alphabet_scroller)
         visibleLetterView = findViewById(R.id.visible_letter)
 
         setupAlphabetScroller(alphabetScroller, contactListRecyclerView, contactListWithHeaders)
@@ -126,32 +130,41 @@ class MyContactPage : AppCompatActivity() {
         recyclerView: RecyclerView,
         contactList: List<ContactDTO>
     ) {
+        val letters = ('A'..'Z').toList()
+
         scroller.setOnTouchListener { _, event ->
             val totalHeight = scroller.height
-            val letters = ('A'..'Z').toList()
             val letterHeight = totalHeight / letters.size
             val actionY = event.y.toInt()
             val letterIndex = actionY / letterHeight
 
-            if (event.action == MotionEvent.ACTION_MOVE || event.action == MotionEvent.ACTION_DOWN) {
-                if (letterIndex in letters.indices) {
-                    val selectedLetter = letters[letterIndex]
-                    visibleLetterView.visibility = View.VISIBLE
-                    visibleLetterView.text = selectedLetter.toString()
+            when (event.action) {
+                MotionEvent.ACTION_MOVE, MotionEvent.ACTION_DOWN -> {
+                    if (letterIndex in letters.indices) {
+                        val selectedLetter = letters[letterIndex]
+                        visibleLetterView.text = selectedLetter.toString()
+                        visibleLetterView.visibility = View.VISIBLE
 
-                    val position = contactList.indexOfFirst {
-                        it.name.startsWith(selectedLetter.toString(), true)
-                    }
-                    if (position != -1) {
-                        recyclerView.scrollToPosition(position)
+                        // Move the visible letter to follow the touch position
+                        visibleLetterView.y = event.rawY - (visibleLetterView.height / 2)
+
+                        // Scroll the RecyclerView to the correct position
+                        val position = contactList.indexOfFirst {
+                            it.name.startsWith(selectedLetter.toString(), true)
+                        }
+                        if (position != -1) {
+                            recyclerView.scrollToPosition(position)
+                        }
                     }
                 }
-            } else if (event.action == MotionEvent.ACTION_UP) {
-                visibleLetterView.visibility = View.GONE
+                MotionEvent.ACTION_UP -> {
+                    visibleLetterView.visibility = View.GONE
+                }
             }
             true
         }
     }
+
 
     class ContactAdapter(private val items: List<ContactDTO>, private val context: Context) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {

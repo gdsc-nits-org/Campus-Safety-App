@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MyContactActivity">
 
     <TextView
         android:id="@+id/backText"
@@ -53,9 +53,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myContactsText"
-        app:queryHint="Search Contacts..."
-        app:queryBackground="@android:color/transparent"
-        android:iconifiedByDefault="false"/>
+        android:iconifiedByDefault="false"
+        android:focusable="true"
+        android:clickable="true"
+        app:queryHint="Search Contacts..." />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contact_list"
@@ -81,7 +83,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/contact_list"
         android:background="@android:color/transparent"/>
+
+
 
     <TextView
         android:id="@+id/visible_letter"
@@ -90,13 +95,14 @@
         android:textSize="48sp"
         android:textColor="@android:color/white"
         android:gravity="center"
-        android:background="@drawable/scroller_bg"
+        android:background="@drawable/scroll_letter_bg"
         android:elevation="8dp"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
