@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="sos_page">#E61D36</color>
+    <color name="arrow">#8383F9</color>
+    <color name="arrow2">#12B012</color>
+
+
 </resources>
