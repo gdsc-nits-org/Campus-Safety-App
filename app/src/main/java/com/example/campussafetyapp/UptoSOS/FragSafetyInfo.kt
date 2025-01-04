@@ -1,10 +1,9 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.UptoSOS
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +11,11 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.animation.doOnEnd
 import androidx.navigation.fragment.findNavController
+import com.example.campussafetyapp.R
 
 
 class FragSafetyInfo : Fragment() {
@@ -52,7 +50,7 @@ class FragSafetyInfo : Fragment() {
 //
 //             }
                if(isAdded) {
-                   findNavController().navigate(R.id.action_fragSafetyInfo_to_loginActivity_primary)
+                   findNavController().navigate(R.id.action_fragSafetyInfo_to_loginActivity)
                }
         }
 

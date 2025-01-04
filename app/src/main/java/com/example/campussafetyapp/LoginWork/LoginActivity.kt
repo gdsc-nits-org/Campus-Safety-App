@@ -1,9 +1,11 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.LoginWork
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.campussafetyapp.HomePageWork.HomePageMain
+import com.example.campussafetyapp.MainActivity
 import com.example.campussafetyapp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -46,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){ task ->
                     if(task.isSuccessful){
                         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, HomePageMain::class.java)
                         startActivity(intent)
                         finish()
                     } else {

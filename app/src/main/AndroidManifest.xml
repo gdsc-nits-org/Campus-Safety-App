@@ -13,22 +13,23 @@
         android:theme="@style/Theme.CampusSafetyApp"
         tools:targetApi="31">
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".HomePageWork.HomePageMain"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginWork.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".LoginWork.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity_primary"
+            android:name=".LoginWork.SignUpActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".UptoSOS.UptoSosActivity"
             android:exported="false" />
         <activity
-            android:name=".UptoSosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
+            android:name=".UptoSOS.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

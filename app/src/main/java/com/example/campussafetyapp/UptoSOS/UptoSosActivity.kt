@@ -1,12 +1,11 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.UptoSOS
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
+import com.example.campussafetyapp.R
 
 class UptoSosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
