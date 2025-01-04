@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,23 +15,25 @@
         android:theme="@style/Theme.CampusSafetyApp"
         tools:targetApi="31">
         <activity
-            android:name=".HomePageWork.HomePageMain"
-            android:exported="false" />
-        <activity
-            android:name=".LoginWork.ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginWork.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginWork.SignUpActivity"
-            android:exported="false" />
 
-        <activity
-            android:name=".UptoSOS.UptoSosActivity"
+
+            android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".UptoSOS.SplashScreen"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity_primary"
+            android:exported="false" />
+        <activity
+            android:name=".UptoSosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,5 +45,6 @@
             android:name=".MainActivity"
             android:exported="false" />
     </application>
+
 
 </manifest>
