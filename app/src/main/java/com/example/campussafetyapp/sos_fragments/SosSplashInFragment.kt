@@ -1,4 +1,4 @@
-package com.example.csa_gdgc.sos_frags
+package com.example.campussafetyapp.sos_fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,22 +7,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import com.example.csa_gdgc.R
-import com.example.csa_gdgc.SosMainFragment
-import com.example.csa_gdgc.databinding.FragmenrSosInSplashBinding
+import com.example.campussafetyapp.R
+import com.example.campussafetyapp.databinding.FragmentSosSplashInBinding
 
 class SosSplashInFragment : Fragment() {
 
-    private var _binding : FragmenrSosInSplashBinding? = null
+    private var _binding : FragmentSosSplashInBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmenrSosInSplashBinding.inflate(inflater, container, false)
+        _binding = FragmentSosSplashInBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -33,7 +31,7 @@ class SosSplashInFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container_view, SosMainFragment())
+                .replace(R.id.sos_fragment_container, SosMainFragment())
                 .commit()
         }, 2000)
 

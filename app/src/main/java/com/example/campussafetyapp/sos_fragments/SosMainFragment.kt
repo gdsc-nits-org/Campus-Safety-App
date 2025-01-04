@@ -1,23 +1,23 @@
-package com.example.csa_gdgc
+package com.example.campussafetyapp.sos_fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.csa_gdgc.databinding.FragmentSosMainFragBinding
-import com.example.csa_gdgc.sos_frags.SosSplashOutFragment
+import com.example.campussafetyapp.R
+import com.example.campussafetyapp.databinding.FragmentSosMainBinding
 
 class SosMainFragment : Fragment() {
 
-    private var _binding: FragmentSosMainFragBinding? = null
+    private var _binding: FragmentSosMainBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSosMainFragBinding.inflate(inflater, container, false)
+        _binding = FragmentSosMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -27,16 +27,14 @@ class SosMainFragment : Fragment() {
             if (parentFragmentManager.findFragmentByTag(SosSplashOutFragment::class.java.simpleName) == null) {
                 parentFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fragment_container_view, SosSplashOutFragment())
+                    .replace(R.id.sos_fragment_container, SosSplashOutFragment())
                     .commit()
             }
         }
 
         binding.backBtn.setOnClickListener {
             parentFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container_view, HomeFragment())
-                .commit()
+                // To be defined later
         }
     }
 

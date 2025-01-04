@@ -1,14 +1,14 @@
 <resources>
-<string name="app_name">Campus Safety App</string>
-<!-- TODO: Remove or change this placeholder text -->
-<string name="hello_blank_fragment">Hello blank fragment</string>
-<string name="sos_splash_out_uppertext">SOS Alert has been sent to your emergency\ncontacts.</string>
-<string name="sos_splash_out_bottomtext">Assistance is en route</string>
-<string name="sos_main_backbtn">Back</string>
-<string name="sos_main_warning">WARNING !</string>
-<string name="sos_main_instruction1">SOS IS ONLY TO BE USED IN\nEMERGENCY AND LIFE\nTHREATENING CONDITIONS</string>
-<string name="sos_main_instruction2">Your location, along with a flash notification, will be sent to your emergency contact numbers along with those within a 50m radius. If any student intentionally sends a false alert through the application, strict disciplinary action will be taken against them. Such actions not only disrupt the system but also compromise the safety and well-being of other users.</string>
-<string name="sos_main_areyousure">Are you sure you want to turn on SOS Alert?</string>
-<string name="sos_main_request_btn">Request Help</string>
-<string name="sos_splashIn_title">SOS</string>
+    <string name="app_name">Campus Safety App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sos_splash_out_uppertext">SOS Alert has been sent to your emergency\ncontacts.</string>
+    <string name="sos_splash_out_bottomtext">Assistance is en route</string>
+    <string name="sos_main_backbtn">Back</string>
+    <string name="sos_main_warning">WARNING !</string>
+    <string name="sos_main_instruction1">SOS IS ONLY TO BE USED IN\nEMERGENCY AND LIFE\nTHREATENING CONDITIONS</string>
+    <string name="sos_main_instruction2">Your location, along with a flash notification, will be sent to your emergency contact numbers along with those within a 50m radius. If any student intentionally sends a false alert through the application, strict disciplinary action will be taken against them. Such actions not only disrupt the system but also compromise the safety and well-being of other users.</string>
+    <string name="sos_main_areyousure">Are you sure you want to turn on SOS Alert?</string>
+    <string name="sos_main_request_btn">Request Help</string>
+    <string name="sos_splashIn_title">SOS</string>
 </resources>

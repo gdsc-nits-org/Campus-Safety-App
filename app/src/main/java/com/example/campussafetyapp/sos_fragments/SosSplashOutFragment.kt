@@ -1,4 +1,4 @@
-package com.example.csa_gdgc.sos_frags
+package com.example.campussafetyapp.sos_fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,19 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import com.example.csa_gdgc.R
-import com.example.csa_gdgc.databinding.FragmentSosOutSplashBinding
+import com.example.campussafetyapp.R
+import com.example.campussafetyapp.databinding.FragmentSosSplashOutBinding
 
 class SosSplashOutFragment : Fragment() {
 
-    private var _binding : FragmentSosOutSplashBinding? = null
+    private var _binding : FragmentSosSplashOutBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSosOutSplashBinding.inflate(inflater, container, false)
+        _binding = FragmentSosSplashOutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,12 +28,9 @@ class SosSplashOutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.sos_splash_out)
         binding.ambulance.startAnimation(animation)
-        Handler(Looper.getMainLooper()).postDelayed({
-            parentFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container_view, HomeFragment())
-                .commit()
-        }, 2000)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//           // To be defined later
+//        }, 2000)
 
     }
 
