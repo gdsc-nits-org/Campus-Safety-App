@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sos_background"
+    tools:context=".sos_frags.SosSplashInFragment">
+
+    <View
+        android:id="@+id/circle"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
+        android:layout_gravity="center"
+        android:background="@drawable/circle_1"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans_bold"
+        android:text="@string/sos_splashIn_title"
+        android:layout_gravity="center"
+        android:textColor="@color/sos_background"
+        android:textSize="65sp"
+        android:textStyle="bold" />
+
+
+</FrameLayout>
