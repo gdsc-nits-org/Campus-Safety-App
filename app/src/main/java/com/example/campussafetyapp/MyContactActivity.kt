@@ -1,11 +1,15 @@
 package com.example.campussafetyapp
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -14,8 +18,11 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,7 +36,10 @@ class MyContactActivity : AppCompatActivity() {
     private lateinit var visibleLetterView: TextView
     private lateinit var alphabetScroller: View
 
-    @SuppressLint("Range")
+    companion object {
+        private const val PERMISSION_REQUEST_READ_CONTACTS = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_contact_page)
@@ -39,6 +49,58 @@ class MyContactActivity : AppCompatActivity() {
             finish()
         }
 
+        // Check and request contacts permission
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestContactsPermission()
+        } else {
+            setupContacts()
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    private fun requestContactsPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_CONTACTS)) {
+            AlertDialog.Builder(this)
+                .setTitle("Permission Required")
+                .setMessage("This app needs access to your contacts to display them.")
+                .setPositiveButton("OK") { _, _ ->
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf(Manifest.permission.READ_CONTACTS),
+                        PERMISSION_REQUEST_READ_CONTACTS
+                    )
+                }
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show()
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_CONTACTS),
+                PERMISSION_REQUEST_READ_CONTACTS
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_READ_CONTACTS) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                setupContacts()
+            } else {
+                Toast.makeText(this, "Permission to read contacts was denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupContacts() {
         val contactListRecyclerView: RecyclerView = findViewById(R.id.contact_list)
         contactListRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -49,9 +111,9 @@ class MyContactActivity : AppCompatActivity() {
         contactListRecyclerView.adapter = contactAdapter
 
         val searchView = findViewById<SearchView>(R.id.searchView)
-        searchView.isIconified = false // Ensures the search view is fully expanded
+        searchView.isIconified = false
         searchView.setOnClickListener {
-            searchView.isIconified = false // Ensures it responds to clicks anywhere
+            searchView.isIconified = false
         }
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
@@ -66,12 +128,6 @@ class MyContactActivity : AppCompatActivity() {
         visibleLetterView = findViewById(R.id.visible_letter)
 
         setupAlphabetScroller(alphabetScroller, contactListRecyclerView, contactListWithHeaders)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 
     @SuppressLint("Range")
@@ -164,7 +220,6 @@ class MyContactActivity : AppCompatActivity() {
             true
         }
     }
-
 
     class ContactAdapter(private val items: List<ContactDTO>, private val context: Context) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
