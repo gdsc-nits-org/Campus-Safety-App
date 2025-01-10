@@ -6,23 +6,38 @@
     app:startDestination="@id/fragSafetyInfo">
     <fragment
         android:id="@+id/fragSafetyInfo"
-        android:name="com.example.campussafetyapp.FragSafetyInfo"
+        android:name="com.example.campussafetyapp.UptoSOS.FragSafetyInfo"
         android:label="FragSafetyInfo" >
         <action
             android:id="@+id/action_fragSafetyInfo_to_fragAcedamicInfo"
             app:destination="@id/fragAcedamicInfo" />
+        <action
+            android:id="@+id/action_fragSafetyInfo_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/fragAcedamicInfo"
-        android:name="com.example.campussafetyapp.FragAcedamicInfo"
+        android:name="com.example.campussafetyapp.UptoSOS.FragAcedamicInfo"
         android:label="FragAcedamicInfo" >
         <action
             android:id="@+id/action_fragAcedamicInfo_to_SOSFragment"
             app:destination="@id/SOSFragment" />
+        <action
+            android:id="@+id/action_fragAcedamicInfo_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/SOSFragment"
-        android:name="com.example.campussafetyapp.SOSFragment"
+        android:name="com.example.campussafetyapp.UptoSOS.SOSFragment"
         android:label="fragment_s_o_s"
-        tools:layout="@layout/fragment_s_o_s" />
+        tools:layout="@layout/fragment_s_o_s" >
+        <action
+            android:id="@+id/action_SOSFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.campussafetyapp.LoginWork.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
