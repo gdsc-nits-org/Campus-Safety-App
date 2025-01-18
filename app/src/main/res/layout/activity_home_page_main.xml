@@ -80,6 +80,8 @@
                 android:layout_height="139dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
 
                 app:srcCompat="@drawable/mapdummy" />
 
