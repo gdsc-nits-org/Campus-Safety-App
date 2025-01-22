@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- MapView -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ProgressBar for loader -->
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
+
+    <!-- LinearLayout for buttons, positioned 40dp from the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:gravity="center_vertical">
+
+        <!-- Hospital Button -->
+        <Button
+            android:id="@+id/btn_hospital"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Hospital"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Police Station Button -->
+        <Button
+            android:id="@+id/btn_police"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Police Station"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Plus and Minus Buttons (Positioned at the top-right) -->
+    <ImageButton
+        android:id="@+id/btn_zoom_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/zoom_in"
+        android:contentDescription="Zoom In"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp" />
+
+    <ImageButton
+        android:id="@+id/btn_zoom_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/zoom_out"
+        android:contentDescription="Zoom Out"
+        android:layout_below="@+id/btn_zoom_in"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Back Button (Positioned at the top-left) -->
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/return_back"
+        android:contentDescription="Back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp" />
+
+</RelativeLayout>

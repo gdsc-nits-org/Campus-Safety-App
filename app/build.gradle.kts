@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
     id("kotlin-kapt")
+
+    alias(libs.plugins.google.gms.google.services)
+
 }
 
 android {
@@ -34,13 +38,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
         dataBinding=true
+
     }
 }
 
 dependencies {
+
 
     // Core Room functionality
     implementation(libs.androidx.room.runtime)
@@ -58,12 +65,22 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1") // Required for annotation processing
     implementation("androidx.room:room-ktx:2.6.1")
 
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.osmdroid)
+    implementation(libs.volley)
 }

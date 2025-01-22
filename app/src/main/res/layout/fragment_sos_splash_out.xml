@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/sos_background"
+    tools:context=".sos_fragments.SosSplashOutFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sos_splash_out_uppertext"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:fontFamily="@font/dm_sans_bold"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="30dp"
+        android:textAlignment="textStart"
+        android:layout_marginStart="30dp"/>
+
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/sos_ambulance_bg_circle">
+
+        <ImageView
+            android:id="@+id/ambulance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ambulance"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sos_splash_out_bottomtext"
+        android:textSize="30sp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dm_sans_bold"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
