@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    id("kotlin-kapt")
+
     alias(libs.plugins.google.gms.google.services)
+
 }
 
 android {
@@ -35,11 +39,9 @@ android {
         jvmTarget = "1.8"
     }
 
-    dataBinding { 
-        enable= true
-    }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
+        dataBinding=true
 
     }
 }
@@ -47,9 +49,27 @@ android {
 dependencies {
 
 
+    // Core Room functionality
+    implementation(libs.androidx.room.runtime)
+
+    // Kotlin extensions for Room
+    implementation(libs.androidx.room.ktx)
+
+    // Annotation processor for Room (required)
+    kapt(libs.androidx.room.compiler)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation(libs.androidx.room.runtime)
+    kapt("androidx.room:room-compiler:2.6.1") // Required for annotation processing
+    implementation("androidx.room:room-ktx:2.6.1")
+
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

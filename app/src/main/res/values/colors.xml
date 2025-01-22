@@ -3,6 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="red">#FB291A</color>
+    <color name="item_background">#F5F0FF</color>
+    <color name="item_info_background">#D3BDFD</color>
+
+
     <color name="sos_background">#E71D26</color>
     <color name="sos_main_instruction2_text">#48464C</color>
 
@@ -16,7 +21,6 @@
     <color name="arrow">#8383F9</color>
     <color name="arrow2">#12B012</color>
     <color name="Textwhite">#EFE3E3</color>
-
 
 
 
