@@ -1,4 +1,4 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.RoomDB
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

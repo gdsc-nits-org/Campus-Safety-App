@@ -1,8 +1,7 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.EmergencyContacts
 
 import androidx.recyclerview.widget.RecyclerView
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -15,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.campussafetyapp.RoomDB.AppDatabase
 import com.example.campussafetyapp.R
+import com.example.campussafetyapp.RoomDB.Contact
 import com.example.campussafetyapp.databinding.ActivityAddContactsBinding
 
 

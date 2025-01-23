@@ -13,19 +13,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.campussafetyapp.MyContactActivity
+import com.example.campussafetyapp.EmergencyContacts.MyContactActivity
 import com.example.campussafetyapp.R
-import com.example.campussafetyapp.SosEmergencyActivity
-import com.example.campussafetyapp.databinding.ActivityForgotPasswordBinding
-import com.example.campussafetyapp.databinding.ActivityHomePageMainBinding
+import com.example.campussafetyapp.SoSEmergencyImplements.SosEmergencyActivity
 import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.Manifest
-
-
-
+import com.example.campussafetyapp.EmergencyContacts.EmergencyContactsActivity
 
 
 class HomePageMain : AppCompatActivity() {
@@ -99,6 +94,9 @@ class HomePageMain : AppCompatActivity() {
         val EmargencyContact = findViewById<CardView>(R.id.EmergencyContacts)
         EmargencyContact.setOnClickListener {
             //Emargency Contact
+            Intent(this, EmergencyContactsActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
 

@@ -1,11 +1,8 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.SoSEmergencyImplements
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.campussafetyapp.sos_fragments.SosSplashInFragment
+import com.example.campussafetyapp.R
 
 class SosEmergencyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

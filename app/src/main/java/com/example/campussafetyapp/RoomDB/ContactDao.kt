@@ -1,4 +1,4 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.RoomDB
 
 import androidx.room.Dao
 import androidx.room.Delete

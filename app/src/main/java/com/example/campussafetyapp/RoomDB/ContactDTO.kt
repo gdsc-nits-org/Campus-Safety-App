@@ -1,4 +1,4 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.RoomDB
 
 import android.graphics.Bitmap
 

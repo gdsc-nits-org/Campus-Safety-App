@@ -1,4 +1,4 @@
-package com.example.campussafetyapp
+package com.example.campussafetyapp.EmergencyContacts
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campussafetyapp.R
+import com.example.campussafetyapp.RoomDB.Contact
 import com.example.campussafetyapp.databinding.ItemContactInfoBinding
 import com.example.campussafetyapp.databinding.ItemEmergencyContactBinding
 
