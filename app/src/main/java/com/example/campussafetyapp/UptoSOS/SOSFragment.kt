@@ -25,6 +25,7 @@ class SOSFragment : Fragment() {
 
         startButton.setOnClickListener{
 
+
             Intent(requireContext(), LoginActivity::class.java).also {
                 startActivity(it)
             }
