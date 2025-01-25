@@ -3,20 +3,31 @@ package com.example.campussafetyapp.SMSEmergencyContacts
 import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
+import android.location.Location
 import android.telephony.SmsManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.campussafetyapp.RoomDB.AppDatabase
 import com.example.campussafetyapp.RoomDB.Contact
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.resume
 
 class SendSosSms(private val activity: Activity) {
 
     private val REQUEST_CODE_SMS = 1
+    private val REQUEST_CODE_LOCATION = 2
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    init {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity)
+    }
 
     // Sends an SOS message to all emergency contacts in the database.
     fun sendEmergencySms() {
@@ -26,8 +37,19 @@ class SendSosSms(private val activity: Activity) {
             return
         }
 
-        // Fetch emergency contacts and send messages
+        // Check location permission
+        if (!hasLocationPermission()) {
+            requestLocationPermission()
+            return
+        }
+
+        // Fetch user location and send messages
         CoroutineScope(Dispatchers.IO).launch {
+            val location = getUserLocation()
+            val locationLink = location?.let {
+                "https://maps.google.com/?q=${it.latitude},${it.longitude}"
+            } ?: "Location unavailable"
+
             val database = AppDatabase.getDatabase(activity.applicationContext)
             val contactDao = database.contactDao()
 
@@ -43,20 +65,21 @@ class SendSosSms(private val activity: Activity) {
 
             // Send SMS to all contacts
             val smsManager = SmsManager.getDefault()
-            val failedContacts = mutableListOf<String>() // Track failed contacts
+            val failedContacts = mutableListOf<String>()
 
             for (contact in contacts) {
                 try {
                     // Validate phone number before sending
-                    if (contact.phoneNumber.isNullOrBlank()) {
+                    if (!isValidPhoneNumber(contact.phoneNumber)) {
                         failedContacts.add(contact.name ?: "Unknown")
                         continue
                     }
 
+                    val message = "This is an emergency message. My location: $locationLink"
                     smsManager.sendTextMessage(
                         contact.phoneNumber,
                         null,
-                        "This is an emergency message. Google map link : ",
+                        message,
                         null,
                         null
                     )
@@ -98,14 +121,59 @@ class SendSosSms(private val activity: Activity) {
         )
     }
 
-    // Handles the result of the SMS permission request.
+    // Checks if the app has location permissions.
+    private fun hasLocationPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            activity,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    // Requests location permissions from the user.
+    private fun requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            activity,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            REQUEST_CODE_LOCATION
+        )
+    }
+
+    // Fetches the user's current location.
+    private suspend fun getUserLocation(): Location? {
+        return try {
+            suspendCancellableCoroutine { continuation ->
+                fusedLocationClient.lastLocation
+                    .addOnSuccessListener { location ->
+                        continuation.resume(location)
+                    }
+                    .addOnFailureListener {
+                        continuation.resume(null)
+                    }
+            }
+        } catch (e: SecurityException) {
+            null // Return null if permission is not granted
+        }
+    }
+
+    // Validates phone numbers to ensure they are correct.
+    private fun isValidPhoneNumber(phoneNumber: String?): Boolean {
+        return phoneNumber != null && android.util.Patterns.PHONE.matcher(phoneNumber).matches()
+    }
+
+    // Handles the result of the permissions request.
     fun handlePermissionsResult(requestCode: Int, grantResults: IntArray) {
         if (requestCode == REQUEST_CODE_SMS) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(activity, "Permission granted. Sending SOS messages!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "SMS permission granted. Sending SOS messages!", Toast.LENGTH_SHORT).show()
                 sendEmergencySms()
             } else {
                 Toast.makeText(activity, "SMS permission denied. Cannot send messages.", Toast.LENGTH_SHORT).show()
+            }
+        } else if (requestCode == REQUEST_CODE_LOCATION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                sendEmergencySms()
+            } else {
+                Toast.makeText(activity, "Location permission denied. Cannot fetch location.", Toast.LENGTH_SHORT).show()
             }
         }
     }
