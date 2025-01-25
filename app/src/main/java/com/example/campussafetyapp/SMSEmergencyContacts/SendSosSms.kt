@@ -75,7 +75,8 @@ class SendSosSms(private val activity: Activity) {
                         continue
                     }
 
-                    val message = "This is an emergency message. My location: $locationLink"
+                    val message = "This is an SOS. I am in urgent need of help.\n" +
+                            "My Location : $locationLink"
                     smsManager.sendTextMessage(
                         contact.phoneNumber,
                         null,
