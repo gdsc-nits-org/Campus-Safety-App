@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Back Button -->
+    <TextView
+        android:id="@+id/goBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:drawableRight="@drawable/arrow"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:padding="8dp"
+        android:text="Back"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Active tracking -->
+    <TextView
+        android:id="@+id/activeTracking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableRight="@drawable/location_on"
+        android:drawablePadding="8dp"
+
+        android:padding="8dp"
+        android:text="Active Tracking"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Selected contacts-->
+
+    <TextView
+        android:id="@+id/selectedCont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/recyclerview_backgroung"
+        android:drawablePadding="8dp"
+
+        android:padding="8dp"
+        android:text="Selected Contacts"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSelectedContacts"
+        android:background="@color/recyclerview_backgroung"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnSelectContacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/arrow_outward"
+        android:layout_margin="5dp"
+        android:background="@drawable/rectangle_button"
+        android:text="Select from Contact List"
+        android:textColor="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:elevation="2dp" />
+
+    <Button
+        android:id="@+id/btnShareLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_button"
+        android:drawableEnd="@drawable/share_location"
+        android:text="Share my Location"
+        android:textColor="#8D81EA" />
+</LinearLayout>
+

@@ -22,6 +22,10 @@
     <color name="arrow2">#12B012</color>
     <color name="Textwhite">#EFE3E3</color>
 
+    <color name="recyclerview_backgroung">#E5E2EB</color>
+    <color name="selected_contact_item_background">#C2A3FF</color>
+
+
 
 
 </resources>

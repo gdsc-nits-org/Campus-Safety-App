@@ -22,6 +22,7 @@ firebaseAuth = "23.1.0"
 firebaseDatabase = "21.0.0"
 firebaseAuthKtx = "23.1.0"
 playServicesLocation = "21.3.0"
+playServicesMaps = "19.0.0"
 
 
 [libraries]
@@ -50,6 +51,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
 
 
 [plugins]

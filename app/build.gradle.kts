@@ -55,6 +55,7 @@ dependencies {
     // Kotlin extensions for Room
     implementation(libs.androidx.room.ktx)
     implementation(libs.play.services.location)
+    implementation(libs.play.services.maps)
 
     // Annotation processor for Room (required)
     kapt(libs.androidx.room.compiler)
