@@ -16,5 +16,24 @@
     <string name="todo">TODO</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <string-array name="branches">
+        <item>Civil Engineering</item>
+        <item>Computer Science Engineering</item>
+        <item>Electrical Engineering</item>
+        <item>Electronics and Communication Engineering</item>
+        <item>Electronics and Instrumentation Engineering</item>
+        <item>Mechanical Engineering</item>
+    </string-array>
+
+    <string-array name="semesters">
+        <item>First Semester</item>
+        <item>Second Semester</item>
+        <item>Third Semester</item>
+        <item>Fourth Semester</item>
+        <item>Fifth Semester</item>
+        <item>Sixth Semester</item>
+        <item>Seventh Semester</item>
+        <item>Eighth Semester</item>
+    </string-array>
 
 </resources>

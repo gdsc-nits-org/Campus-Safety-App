@@ -19,6 +19,9 @@
         android:theme="@style/Theme.CampusSafetyApp"
         tools:targetApi="31">
         <activity
+            android:name=".ResourceActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomePageWork.OpenStreetMapActivity"
             android:exported="false" />
         <activity
