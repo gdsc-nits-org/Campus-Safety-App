@@ -18,12 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.CampusSafetyApp"
         tools:targetApi="31">
-        <activity
-            android:name=".Developers.DevelopersPage"
-            android:label="Developers"
-            android:exported="false" />
+
+        <!-- Splash Screen for Developers -->
         <activity
             android:name=".Developers.DevSplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Developers Page -->
+        <activity android:name=".Developers.DevelopersPage" />
+
+        <activity
+            android:name=".HomePageWork.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".HomePageWork.OpenStreetMapActivity"
@@ -49,17 +54,20 @@
         <activity
             android:name=".UptoSOS.UptoSosActivity"
             android:exported="false" />
+
+        <!-- Main App Splash Screen -->
         <activity
             android:name=".UptoSOS.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".EmergencyContacts.EmergencyContactsActivity" />
         <activity android:name=".EmergencyContacts.AddContactsActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />

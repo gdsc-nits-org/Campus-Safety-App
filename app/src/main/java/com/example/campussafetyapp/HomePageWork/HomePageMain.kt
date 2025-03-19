@@ -54,7 +54,9 @@ class HomePageMain : AppCompatActivity() {
                 }
                 R.id.settings->{
 
-                    //Handle settings Button onClick
+                    // Open SettingsActivity when settings button is clicked
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else->false

@@ -58,6 +58,10 @@ dependencies {
     // Annotation processor for Room (required)
     kapt(libs.androidx.room.compiler)
 
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.cardview:cardview:1.0.0")
+
+
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
