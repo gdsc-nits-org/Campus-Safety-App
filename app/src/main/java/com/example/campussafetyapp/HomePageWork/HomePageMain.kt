@@ -20,6 +20,9 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.Manifest
+import android.view.View
+import android.widget.PopupMenu
+import com.example.campussafetyapp.Developers.DevSplashScreen
 import com.example.campussafetyapp.EmergencyContacts.EmergencyContactsActivity
 
 
@@ -55,8 +58,10 @@ class HomePageMain : AppCompatActivity() {
                 R.id.settings->{
 
                     // Open SettingsActivity when settings button is clicked
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
+                    val settingsView = findViewById<View>(R.id.settings)
+                    showSettingsMenu(settingsView)
+                    true
+
                     true
                 }
                 else->false
@@ -152,6 +157,34 @@ class HomePageMain : AppCompatActivity() {
         }
 
     }
+
+    private fun showSettingsMenu(anchor: View) {
+
+        val popup = PopupMenu(this, anchor)
+        popup.menuInflater.inflate(R.menu.menu_main, popup.menu)
+
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.developers -> {
+                    var intent = Intent(this,DevSplashScreen::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.feedback -> {
+                    Toast.makeText(this, "Privacy Policy Clicked", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.whats_new -> {
+                    Toast.makeText(this, "What's New Clicked", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+
+
     // Open the OpenStreetMap activity
     private fun openOpenStreetMapActivity() {
         val intent = Intent(this, OpenStreetMapActivity::class.java)
