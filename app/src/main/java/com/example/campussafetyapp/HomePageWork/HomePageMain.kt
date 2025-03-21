@@ -60,7 +60,6 @@ class HomePageMain : AppCompatActivity() {
                     // Open SettingsActivity when settings button is clicked
                     val settingsView = findViewById<View>(R.id.settings)
                     showSettingsMenu(settingsView)
-                    true
 
                     true
                 }

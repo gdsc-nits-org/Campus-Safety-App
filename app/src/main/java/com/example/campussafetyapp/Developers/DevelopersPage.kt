@@ -18,23 +18,60 @@ class DevelopersPage : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val developers = listOf(
-            Developer(
+            DeveloperItem.SectionHeader("Android Developers"),
+
+            DeveloperItem.Developer(
+                name = "Abhishekh Kumar Mishra",
+                details = "Android Developer",
+                branch = "NIT Silchar | CSE",
+                imageResId = R.drawable.abhisekh_mishra,
+                facebookLink = "https://www.facebook.com/profile.php?id=100055101542369",
+                instagramLink = "https://www.instagram.com/iamabhishekhmishra/?hl=en",
+                linkedInLink = "https://www.linkedin.com/in/abhishekh-kumar-mishra-81a655291/",
+                gitHubLink = "https://github.com/Abhishekhmishra0"
+            ),
+            DeveloperItem.Developer(
                 name = "Draksha Chaudhary",
-                branch = "Branch: CSE",
+                details = "Android Developer",
+                branch = "NIT Silchar | CSE",
                 imageResId = R.drawable.draksha,
                 facebookLink = "https://www.facebook.com/draksha.chaudhary/",
                 instagramLink = "https://www.instagram.com/cdraksha",
                 linkedInLink = "https://www.linkedin.com/in/draksha-chaudhary",
                 gitHubLink = "https://github.com/drakshaa"
             ),
-            Developer(
-                name = "Draksha ",
-                branch = "Branch: ECE",
+            DeveloperItem.Developer(
+                name = "Parishmita Banik",
+                details = "Android Developer",
+                branch = "NIT Silchar | CSE",
+                imageResId = R.drawable.parishmita,
+                facebookLink = "https://www.facebook.com/share/1ZJyH49KmG/",
+                instagramLink = "https://www.instagram.com/banikparishmita/",
+                linkedInLink = "https://www.linkedin.com/in/parishmita-banik-8b0235288/",
+                gitHubLink = "https://github.com/Parishmitabanik"
+            ),
+            DeveloperItem.Developer(
+                name = "Shaik Mahammad Razeef ",
+                branch = "NIT Silchar | EE",
+                imageResId = R.drawable.razeef,
+                details = "Android Developer",
+                facebookLink = "https://www.facebook.com/",
+                instagramLink = "https://www.instagram.com/razeef_shaik?igsh=cGE5ZXY4cnk2MWl5",
+                linkedInLink = "https://www.linkedin.com/in/shaik-mahammad-razeef-374a4b2a4?",
+                gitHubLink = "https://github.com/Razeefshaik"
+
+            ),
+            DeveloperItem.SectionHeader("UI/UX Developers"),
+            DeveloperItem.Developer(
+                name = "... ",
+                branch = "NIT Silchar | EE",
                 imageResId = R.drawable.sample_image,
-                facebookLink = "https://www.facebook.com/draksha.chaudhary/",
-                instagramLink = "https://www.instagram.com/cdraksha",
-                linkedInLink = "https://www.linkedin.com/in/draksha-chaudhary",
-                gitHubLink = "https://github.com/drakshaa"
+                details = "Android Developer",
+                facebookLink = "https://www.facebook.com/",
+                instagramLink = "https://www.instagram.com/",
+                linkedInLink = "https://www.linkedin.com/in/",
+                gitHubLink = "https://github.com/"
+
             )
         )
 
