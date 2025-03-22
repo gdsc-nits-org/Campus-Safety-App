@@ -23,6 +23,8 @@
 
     <color name="selected">@color/black</color>
     <color name="Sdefault">#80000000</color>
+    <color name="TaskCol">#FFFBD5</color>
+    <color name="TASKcOL2">#FFAB9A</color>
 
     <color name="arrow">#8383F9</color>
     <color name="arrow2">#12B012</color>
