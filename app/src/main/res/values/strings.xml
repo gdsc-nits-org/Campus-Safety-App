@@ -12,6 +12,8 @@
     <string name="sos_main_areyousure">Are you sure you want to turn on SOS Alert?</string>
     <string name="sos_main_request_btn">Request Help</string>
     <string name="sos_splashIn_title">SOS</string>
+    <string name="activity_title_vie">Planner</string>
+    <string name="example_7_title">Add tasks</string>
 
     <string name="todo">TODO</string>
     <!-- TODO: Remove or change this placeholder text -->

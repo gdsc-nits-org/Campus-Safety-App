@@ -54,6 +54,8 @@ dependencies {
 
     // Kotlin extensions for Room
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.core.i18n)
+    implementation(libs.androidx.ui.text.android)
 
     // Annotation processor for Room (required)
     kapt(libs.androidx.room.compiler)
@@ -70,6 +72,27 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
+    val  paging_version = "2.1.2"
+
+    implementation("androidx.paging:paging-runtime:$paging_version") // For Kotlin use paging-runtime-ktx
+
+    // alternatively - without Android dependencies for testing
+    testImplementation("androidx.paging:paging-common:$paging_version") // For Kotlin use paging-common-ktx
+
+    // optional - RxJava support
+    implementation("androidx.paging:paging-rxjava2:$paging_version") // For Kotlin use paging-rxjava2-ktx
+
+    // Room Database
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+
+    // Horizontal Calendar View Library
+    implementation(libs.view)
+   // implementation("com.kizitonwose.calendarview:calendarview:2.0.0")
+
+    // ViewModel and LiveData
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
