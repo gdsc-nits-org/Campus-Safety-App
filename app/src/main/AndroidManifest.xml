@@ -23,8 +23,20 @@
             android:exported="false" >
 
 
-        </activity>
+        <!-- Splash Screen for Developers -->
         <activity
+            android:name=".Developers.DevSplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Developers Page -->
+        <activity android:name=".Developers.DevelopersPage" />
+
+        <activity
+            android:name=".HomePageWork.SettingsActivity"
+            android:exported="false" />
+        
+        <activity
+
             android:name=".HomePageWork.OpenStreetMapActivity"
             android:exported="false" />
         <activity
@@ -50,16 +62,18 @@
             android:exported="false" />
 
 
+        <!-- Main App Splash Screen -->
+
+
+
         <activity
             android:name=".UptoSOS.SplashScreen"
             android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            </intent-filter
 
 
         </activity>
