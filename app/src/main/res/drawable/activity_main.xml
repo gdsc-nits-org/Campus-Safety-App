@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#E4E6ED">
+     <LinearLayout
+         android:id="@+id/profilebar"
+         app:layout_constraintTop_toTopOf="parent"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginTop="40dp"
+        >
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/profile"
+           android:layout_marginLeft="13dp"
+           android:id="@+id/profile"
+           ></de.hdodenhof.circleimageview.CircleImageView>
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:fontFamily="sans-serif"
+             android:text="Hi,Piyush"
+             android:layout_marginTop="14dp"
+             android:layout_marginLeft="6dp"
+             android:id="@+id/name"
+             android:textSize="21dp"></TextView>
+
+         <ImageView
+             android:layout_width="35dp"
+             android:layout_height="50dp"
+             android:layout_marginLeft="115dp"
+             android:id="@+id/bell"
+             android:layout_marginTop="6.5dp"
+             android:src="@drawable/notifications_active" />
+         <ImageView
+             android:layout_width="35dp"
+             android:layout_height="55dp"
+             android:src="@drawable/setting_4"
+             android:layout_marginTop="2dp"
+             android:layout_marginLeft="20dp"/>
+
+
+     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/searchbar"
+        app:layout_constraintTop_toBottomOf="@id/profilebar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <SearchView
+
+            android:id="@+id/searchView"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:queryHint="Search here..."
+            android:iconifiedByDefault="false"/>
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:layout_margin="7dp"
+        android:orientation="vertical"
+        android:background="@drawable/background">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studyman"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/student_studying"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/resource"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/time"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:src="@drawable/plan"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:src="@drawable/assign"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/bakbak_one"
+            android:text="Training And Placement"
+            android:textSize="27dp" />
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="horizontal">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/update"
+                   android:layout_marginLeft="10dp"
+                   android:src="@drawable/update"/>
+
+               <ImageView
+                   android:id="@+id/statistic"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="10dp"
+                   android:src="@drawable/statistic" />
+
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="10dp"
+                   android:id="@+id/portal"
+                   android:src="@drawable/portal"/>
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="10dp"
+
+                   android:src="@drawable/resume"/>
+
+
+           </LinearLayout>
+        </HorizontalScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/iconbar"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/home"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/contact"/>
+
+        <selector
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <item android:state_selected="true">
+
+                <shape android:shape="rectangle">
+
+                    <solid android:color="@android:color/holo_red_dark" />
+
+                    <corners android:radius="8dp" />
+
+                    <padding
+                        android:bottom="5dp"
+                        android:left="10dp"
+                        android:right="10dp"
+                        android:top="5dp" />
+                </shape>
+            </item>
+
+            <item>
+
+                <shape android:shape="rectangle">
+
+                    <solid android:color="@android:color/transparent" />
+                </shape>
+            </item>
+        </selector>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/campus"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/academics"/>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
