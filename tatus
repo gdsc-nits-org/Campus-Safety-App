@@ -1,0 +1,189 @@
+[33mcommit 7ca0b3712d01227706902b64011a507e7d9e94d1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDEVV[m[33m, [m[1;31morigin/DEVV[m[33m)[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sat Jan 18 13:34:59 2025 +0530
+
+    Sos button Activity navigation stage 1 implemented
+
+[33mcommit 3d52bc30ce2614e43b65bfe19b9c25266cf119de[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sun Jan 5 11:26:33 2025 +0530
+
+    Sos button Activity navigation stage 1 implemented
+
+[33mcommit a1432d554c446b708c305d0f4e829a75cee3b5ef[m
+Merge: 5383bce 6739ef8
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Sun Jan 5 11:06:19 2025 +0530
+
+    Merge pull request #6 from gdsc-nits-org/SosPages
+    
+    Sos pages
+
+[33mcommit 6739ef8532214882ed1803f62effb8adb3f0817d[m[33m ([m[1;31morigin/SosPages[m[33m)[m
+Merge: 24cde1b 5383bce
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Sun Jan 5 11:06:05 2025 +0530
+
+    Merge branch 'DEVV' into SosPages
+
+[33mcommit 24cde1b2057f15d7f7f45b044c021e7d4d6364d6[m
+Author: svsBishal <thebishal.svs29@gmail.com>
+Date:   Sun Jan 5 00:17:28 2025 +0530
+
+    Sos pages created
+
+[33mcommit 40417f1e7111e054ca32c0f481f25dff58f0351d[m
+Author: svsBishal <thebishal.svs29@gmail.com>
+Date:   Sat Jan 4 22:58:23 2025 +0530
+
+    Sos pages created
+
+[33mcommit 5383bce905c7bf560451b02c0e87140d4c69613f[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sat Jan 4 22:49:37 2025 +0530
+
+    Contacts activity added to Home page and permission bug fixed
+
+[33mcommit 370880f842aaece0fff5035c6c95361dc40ba47a[m
+Merge: 08eaf22 bd0f50a
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sat Jan 4 20:23:40 2025 +0530
+
+    Merge remote-tracking branch 'origin/DEVV' into DEVV
+    
+    # Conflicts:
+    #       app/build.gradle.kts
+    #       app/src/main/AndroidManifest.xml
+
+[33mcommit 08eaf2220a8584870d7776e70906a5f7ff3e6574[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sat Jan 4 20:21:31 2025 +0530
+
+    HomePage Added
+
+[33mcommit bd0f50ab32cb18710ade9cc1bed8a3c58f176e3f[m
+Merge: 040faac aaaf568
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Sat Jan 4 20:18:24 2025 +0530
+
+    Merge pull request #5 from gdsc-nits-org/MyContactPage
+    
+    My contact page
+
+[33mcommit aaaf568a2011e009fc4477326e9992a3569ded72[m[33m ([m[1;31morigin/MyContactPage[m[33m)[m
+Merge: dd63858 040faac
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Sat Jan 4 20:18:02 2025 +0530
+
+    Merge branch 'DEVV' into MyContactPage
+
+[33mcommit dd63858a7edbb54210cc2ef00549631beb2a0c0e[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Fri Jan 3 15:23:19 2025 +0545
+
+    Final
+
+[33mcommit 6d0957d57284c099335ea1d1a6ecaedb82b6804d[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Thu Jan 2 11:02:09 2025 +0545
+
+    Search Icon Fixed
+
+[33mcommit 64b7186deb95062ef2cdd6161caa948d6e6e4322[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Wed Jan 1 22:41:37 2025 +0545
+
+    Scroll Bar Fixed
+
+[33mcommit 5d8fc11be861932f90e001241b7f62d54e59f6c6[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Wed Jan 1 21:50:31 2025 +0545
+
+    Changed The name of Activity
+
+[33mcommit d4693c896c59e528f6f6a533942b086766780fa3[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Wed Jan 1 21:45:57 2025 +0545
+
+    Final Commit
+
+[33mcommit 99552a35244d10058e18d69ee471b77b8fd2f7da[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Wed Jan 1 20:26:05 2025 +0545
+
+    Probably The Final Commit
+
+[33mcommit 3b00a1ead8e5d640a47ad99dc477734bada2af0b[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Wed Jan 1 18:06:45 2025 +0545
+
+    Up To Search bar and Alphabetical Heading
+
+[33mcommit 040faac49e2003f79d11618dc0cc770e426baa96[m
+Merge: 9373c0c 0b1b26c
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Wed Jan 1 17:32:35 2025 +0530
+
+    Merge pull request #4 from gdsc-nits-org/signup
+    
+    Signup merged
+
+[33mcommit 0b1b26cc6932b577f3fcca729fd8d6becd8a5742[m[33m ([m[1;31morigin/signup[m[33m)[m
+Author: gaurijainn_ <gaurijainn@gmail.com>
+Date:   Wed Jan 1 17:19:04 2025 +0530
+
+    Added login, signup, forgot password functionality to the app.
+
+[33mcommit a17d808556ed37fac87a60003605018008defcf8[m
+Author: abhishekhmishra <mabhishekh51@gmail.com>
+Date:   Tue Dec 31 13:12:55 2024 +0545
+
+    upto Contact Display With Image
+
+[33mcommit 9373c0c352db95a5aed46c0ccce65420b62bc672[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Tue Dec 24 19:23:16 2024 +0530
+
+    Progress bar bug  Fixed
+
+[33mcommit 0b77adc00efa20ce58153299866593caf47f9859[m
+Merge: d45b50a 06cb867
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Tue Dec 24 17:03:24 2024 +0530
+
+    Merge pull request #2 from gdsc-nits-org/uptoSOSrazeef
+    
+    Merge pull request #1 from gdsc-nits-org/master
+
+[33mcommit d45b50acf6bbc0121fa4b78eb0ab0ae3ea7f25d7[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Tue Dec 24 17:01:49 2024 +0530
+
+    razeef work has done
+
+[33mcommit 06cb86760ae81dccdcbd6d27477ecb09a62f64c5[m
+Merge: ee45cfa 217168c
+Author: Razeefshaik <149264441+Razeefshaik@users.noreply.github.com>
+Date:   Tue Dec 24 14:57:38 2024 +0530
+
+    Merge pull request #1 from gdsc-nits-org/master
+    
+    changes first day
+
+[33mcommit 217168c0554f28e1f55b4e7edc4d975156f4343d[m
+Author: Shaik Razeef <mahammadrazeefshaik@gmail.com>
+Date:   Sun Dec 22 23:48:34 2024 +0530
+
+    changes first day
+
+[33mcommit ee45cfa2561d4f573a4795d8609551c3eb677ca7[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Bishal Paul Biswas <129422706+bishalpb2004@users.noreply.github.com>
+Date:   Thu Dec 19 23:04:41 2024 +0530
+
+    Firebase added
+
+[33mcommit c16027b40b451a8221bef2521c9089ffcd7f2410[m
+Author: Bishal Paul Biswas <129422706+bishalpb2004@users.noreply.github.com>
+Date:   Thu Dec 19 22:59:58 2024 +0530
+
+    First commit

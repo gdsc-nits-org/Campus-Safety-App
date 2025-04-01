@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/developers"
+        android:title="Developers"
+         />
+
+    <item
+        android:id="@+id/feedback"
+        android:title="Feedback"
+       />
+
+    <item
+        android:id="@+id/whats_new"
+        android:title="What's New"
+         />
+</menu>

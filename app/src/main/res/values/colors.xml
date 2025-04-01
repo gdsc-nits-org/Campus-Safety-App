@@ -2,4 +2,34 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#2196F3</color>
+    <color name="green">#4CAF50</color>
+    <color name="gray">#808080</color>
+
+
+
+
+    <color name="red">#FB291A</color>
+    <color name="item_background">#F5F0FF</color>
+    <color name="item_info_background">#D3BDFD</color>
+
+
+    <color name="sos_background">#E71D26</color>
+    <color name="sos_main_instruction2_text">#48464C</color>
+
+    <color name="sos_page">#E61D36</color>
+    <color name="actionBar">#BDC3F7</color>
+    <color name="StatusBar">#D3D7F4</color>
+
+    <color name="selected">@color/black</color>
+    <color name="Sdefault">#80000000</color>
+    <color name="TaskCol">#FFFBD5</color>
+    <color name="TASKcOL2">#FFAB9A</color>
+
+    <color name="arrow">#8383F9</color>
+    <color name="arrow2">#12B012</color>
+    <color name="Textwhite">#EFE3E3</color>
+
+
+
 </resources>
