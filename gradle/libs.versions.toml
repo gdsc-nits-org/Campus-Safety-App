@@ -24,6 +24,7 @@ firebaseDatabase = "21.0.0"
 firebaseAuthKtx = "23.1.0"
 coreI18n = "1.0.0-alpha01"
 uiTextAndroid = "1.7.8"
+play-services-location = "21.0.1"
 
 
 [libraries]
@@ -54,6 +55,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "coreI18n" }
 androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
 
 
 [plugins]

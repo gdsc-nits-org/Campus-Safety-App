@@ -22,6 +22,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.Manifest
 import android.view.View
 import android.widget.PopupMenu
+import com.example.campussafetyapp.AcademicHomePage.AcademicHomeActivity
+import com.example.campussafetyapp.AcademicHomePage.AcademicSplashActivity
+import com.example.campussafetyapp.CampusMap.CampusMapHomeScreenActivity
 import com.example.campussafetyapp.Developers.DevSplashScreen
 import com.example.campussafetyapp.EmergencyContacts.EmergencyContactsActivity
 
@@ -132,15 +135,22 @@ class HomePageMain : AppCompatActivity() {
                     true
                 }
 
-                R.id.Campus->{
-                    Toast.makeText(this, "CampusButton Clicked", Toast.LENGTH_SHORT).show()
-                    //Handle campus Button onClick
+                R.id.Campus -> {
+                    Toast.makeText(this, "Campus Button Clicked", Toast.LENGTH_SHORT).show()
+                    // Open CampusMapHomeScreenActivity when Campus button is clicked
+                    val intent = Intent(this, CampusMapHomeScreenActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.Academics->{
                     //Handle Contacts Button onClick
                     Toast.makeText(this, "Academics Button Clicked", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this, AcademicSplashActivity::class.java)
+                    startActivity(intent)
                     true
+
+
                 }
                 else->false
             }

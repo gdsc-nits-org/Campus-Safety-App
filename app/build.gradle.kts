@@ -48,6 +48,8 @@ android {
 
 dependencies {
 
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
 
     // Core Room functionality
     implementation(libs.androidx.room.runtime)
@@ -110,4 +112,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.osmdroid)
     implementation(libs.volley)
+    implementation(libs.play.services.location)
 }
