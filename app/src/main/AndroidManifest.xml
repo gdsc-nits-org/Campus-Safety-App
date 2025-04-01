@@ -19,6 +19,9 @@
         android:theme="@style/Base.Theme.CampusSafetyApp"
         tools:targetApi="31">
         <activity
+
+            android:name=".activity_splash_screen"
+
             android:name=".TaskManager.TaskManagerActivity"
             android:exported="false" >
 
@@ -68,6 +71,7 @@
 
         <activity
             android:name=".UptoSOS.SplashScreen"
+
             android:exported="true">
 
             <intent-filter>
@@ -77,11 +81,23 @@
 
 
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
         <activity android:name=".EmergencyContacts.EmergencyContactsActivity" />
         <activity android:name=".EmergencyContacts.AddContactsActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>
