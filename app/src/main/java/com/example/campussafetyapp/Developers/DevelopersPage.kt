@@ -61,16 +61,78 @@ class DevelopersPage : AppCompatActivity() {
                 gitHubLink = "https://github.com/Razeefshaik"
 
             ),
+            DeveloperItem.Developer(
+                name = "Gauri Jain",
+                details = "Android Developer",
+                branch = "NIT Silchar | CSE",
+                imageResId = R.drawable.gauri_jain,
+                facebookLink = "https://www.facebook.com/share/1AHMCTDmLj/",
+                instagramLink = "https://www.instagram.com/gaurijainn_?igsh=MWdkenI4cW16bXlhaA==",
+                linkedInLink = "https://www.linkedin.com/in/gauri-jain-545740312?",
+                gitHubLink = "https://github.com/gaurijainn"
+            ),
+            DeveloperItem.Developer(
+                name = "Bishal Sarma",
+                details = "Android Developer",
+                branch = "NIT Silchar | ECE",
+                imageResId = R.drawable.bishal_sarma,
+                facebookLink = "https://www.facebook.com/vishal.jimon",
+                instagramLink = "https://www.instagram.com/___b1shal_svs/",
+                linkedInLink = "https://www.linkedin.com/in/bishal-sarma-41a9b128a/",
+                gitHubLink = "https://github.com/svsBishal"
+            ),
+            DeveloperItem.Developer(
+                name = "Shibam Singh",
+                details = "Android Developer",
+                branch = "NIT Silchar | CSE",
+                imageResId = R.drawable.shibam_singh,
+                facebookLink = "https://www.facebook.com/shibam.yadav.3154",
+                instagramLink = "https://www.instagram.com/shibam_singh.23/",
+                linkedInLink = "https://www.linkedin.com/in/shibam-singh/",
+                gitHubLink = "https://github.com/shibamsingh/"
+            ),
+            DeveloperItem.Developer(
+                name = "Kunaljit Kasyap",
+                details = "Android Developer",
+                branch = "NIT Silchar | EE",
+                imageResId = R.drawable.kunaljit_kasyap,
+                facebookLink = "https://www.facebook.com/proshifterkunal.proshifterkunal",
+                instagramLink = "https://www.instagram.com/heykunalll__/",
+                linkedInLink = "https://www.linkedin.com/in/kunaljit-kashyap-8bb212287/",
+                gitHubLink = "https://github.com/kunaljit3006"
+            ),
             DeveloperItem.SectionHeader("UI/UX Developers"),
             DeveloperItem.Developer(
-                name = "... ",
-                branch = "NIT Silchar | EE",
-                imageResId = R.drawable.sample_image,
-                details = "Android Developer",
+                name = "Piyush Chatterjee",
+                branch = "NIT Silchar | CSE",
+                imageResId = R.drawable.piyush_chatterjee,
+                details = "UI/UX Developer",
                 facebookLink = "https://www.facebook.com/",
                 instagramLink = "https://www.instagram.com/",
-                linkedInLink = "https://www.linkedin.com/in/",
-                gitHubLink = "https://github.com/"
+                linkedInLink = "https://www.linkedin.com/in/piyush-chatterjee-1b501928b?",
+                gitHubLink = "https://github.com/Piyush-Chatterjee"
+
+            ),
+            DeveloperItem.Developer(
+                name = "Manisha Saloni",
+                branch = "NIT Silchar | ECE",
+                imageResId = R.drawable.manisha_saloi,
+                details = "UI/UX Developer",
+                facebookLink = "https://www.facebook.com/profile.php?id=61550675969308&mibextid=ZbWKwL",
+                instagramLink = "https://www.instagram.com/manisha_saloi?igsh=MnNrbjg2bjU0bHBp",
+                linkedInLink = "https://www.linkedin.com/in/manisha-saloi-aa564228a/",
+                gitHubLink = "https://github.com/manisha999404"
+
+            ),
+            DeveloperItem.Developer(
+                name = "Jitmanyu Pukhan",
+                branch = "NIT Silchar | ECE",
+                imageResId = R.drawable.jitmanyu_pukhan,
+                details = "UI/UX Developer",
+                facebookLink = "https://www.facebook.com/profile.php?id=100070630387563",
+                instagramLink = "https://www.instagram.com/sillycon321?igsh=cHc2ZnozdGlpMTdu",
+                linkedInLink = "www.linkedin.com/in/jitamanyu-phukan-562728280",
+                gitHubLink = "https://github.com/procoast123"
 
             )
         )
