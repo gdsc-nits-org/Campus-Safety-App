@@ -114,7 +114,7 @@ class DevelopersPage : AppCompatActivity() {
 
             ),
             DeveloperItem.Developer(
-                name = "Manisha Saloni",
+                name = "Manisha Saloi",
                 branch = "NIT Silchar | ECE",
                 imageResId = R.drawable.manisha_saloi,
                 details = "UI/UX Developer",
