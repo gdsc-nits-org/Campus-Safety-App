@@ -125,9 +125,9 @@ class DevelopersPage : AppCompatActivity() {
 
             ),
             DeveloperItem.Developer(
-                name = "Jitmanyu Pukhan",
+                name = "Jitamanyu Phukan",
                 branch = "NIT Silchar | ECE",
-                imageResId = R.drawable.jitmanyu_pukhan,
+                imageResId = R.drawable.jitmanyu_phukan,
                 details = "UI/UX Developer",
                 facebookLink = "https://www.facebook.com/profile.php?id=100070630387563",
                 instagramLink = "https://www.instagram.com/sillycon321?igsh=cHc2ZnozdGlpMTdu",
