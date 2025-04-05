@@ -27,6 +27,8 @@ import com.example.campussafetyapp.AcademicHomePage.AcademicSplashActivity
 import com.example.campussafetyapp.CampusMap.CampusMapHomeScreenActivity
 import com.example.campussafetyapp.Developers.DevSplashScreen
 import com.example.campussafetyapp.EmergencyContacts.EmergencyContactsActivity
+import com.example.campussafetyapp.LoginWork.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomePageMain : AppCompatActivity() {
@@ -183,8 +185,8 @@ class HomePageMain : AppCompatActivity() {
                     Toast.makeText(this, "Privacy Policy Clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.whats_new -> {
-                    Toast.makeText(this, "What's New Clicked", Toast.LENGTH_SHORT).show()
+                R.id.logout -> {
+                    showLogoutConfirmationDialog()
                     true
                 }
                 else -> false
@@ -214,6 +216,29 @@ class HomePageMain : AppCompatActivity() {
                 Toast.makeText(this, "GPS permission is required to proceed.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    // log out function
+    private fun showLogoutConfirmationDialog() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setTitle("Logout")
+        builder.setMessage("Are you sure you want to logout?")
+
+        builder.setPositiveButton("Yes") { dialog, _ ->
+            FirebaseAuth.getInstance().signOut()
+            Toast.makeText(this, "Logged out Successfully", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 }

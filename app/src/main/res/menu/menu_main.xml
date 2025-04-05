@@ -10,7 +10,7 @@
        />
 
     <item
-        android:id="@+id/whats_new"
-        android:title="What's New"
+        android:id="@+id/logout"
+        android:title="Logout"
          />
 </menu>
