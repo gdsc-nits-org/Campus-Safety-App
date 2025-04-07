@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.campussafetyapp.R
 
 class DeveloperAdapter(
@@ -64,7 +65,12 @@ class DeveloperAdapter(
             developerName.text = developer.name
             developerBranch.text = developer.branch
             developerDetails.text = developer.details
-            developerImage.setImageResource(developer.imageResId)
+
+            // ✅ Load image using Glide
+            Glide.with(context)
+                .load(developer.imageResId)
+                .placeholder(R.drawable.placeholder) // Optional: show while loading
+                .into(developerImage)
 
             itemView.setOnClickListener {
                 showSocialMediaDialog(context, developer)
