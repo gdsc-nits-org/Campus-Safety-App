@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BugActivity"
+    android:background="@drawable/report_a_bug">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/back"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/text"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/highlight"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/insect"
+            android:hint="Describe your problem"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:gravity="start|top"
+            android:minHeight="100dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/attach_a_document"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="20dp"/>
+        <!-- File Picker Row -->
+        <LinearLayout
+            android:id="@+id/chooseFileLayout"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:clickable="true"
+            android:background="@drawable/chosebg"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/attach_file"/>
+
+            <TextView
+                android:id="@+id/fileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_a_file"
+                android:textColor="#888888"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/sendBugBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E0002D"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp" />
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
