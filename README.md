@@ -50,3 +50,31 @@ The app ensures:
 ---
 
 ## 🏗️ Project Structure
+app/src/main/
+├── java/com/example/campussafetyapp/
+│ ├── BugActivity.kt
+│ ├── MainActivity.kt
+│ └── DoneActivity.kt
+└── res/
+├── layout/
+├── drawable/
+└── values/
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+- Android Studio Hedgehog (2023.1.1) or newer  
+- Android SDK 35  
+- Gmail app installed on device  
+
+---
+
+### ⚙️ Setup
+
+#### 1. Clone the repository
+```bash
+git clone https://github.com/gdsc-nits-org/Campus-Safety-App.git
+cd Campus-Safety-App
